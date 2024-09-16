@@ -111,6 +111,12 @@ class _OnBoardingPage extends State<OnBoardingPage> {
                     color: Colors.black.withOpacity(0.15),
                     spreadRadius: 10,
                     blurRadius: 20,
+                    offset: const Offset(10, 20),
+                  ),
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.15),
+                    spreadRadius: 10,
+                    blurRadius: 20,
                     offset: const Offset(-10, 20),
                   ),
                   BoxShadow(
