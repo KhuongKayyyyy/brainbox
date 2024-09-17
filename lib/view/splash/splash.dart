@@ -1,7 +1,10 @@
 import 'dart:async';  // Import for Timer
-import 'package:brainbox/view/on_boarding_page.dart';
+import 'package:brainbox/main_wrapper.dart';
+import 'package:brainbox/utils/routes.dart';
+import 'package:brainbox/view/splash/on_boarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:brainbox/utils/custom_icon.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -37,10 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _startSplashTimer() {
     _navigationTimer = Timer(const Duration(seconds: 3), () {
-      // Navigate to the next screen (HomeScreen) after 3 seconds
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => OnBoardingPage()),
-      );
+      context.go(Routes.onBoardPage);
     });
   }
 

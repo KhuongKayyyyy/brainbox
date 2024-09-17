@@ -1,25 +1,39 @@
+import 'package:brainbox/main_wrapper.dart';
 import 'package:brainbox/utils/app_theme.dart';
+import 'package:brainbox/utils/routes.dart';
+import 'package:brainbox/view/authentication/phone_verification_page.dart';
+import 'package:brainbox/view/authentication/login_page.dart';
+import 'package:brainbox/view/splash/splash.dart';
 import 'package:brainbox/widget/button/main_button.dart';
 import 'package:brainbox/widget/item/login_method.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class LoginPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpState extends State<SignUpPage> {
   bool _obscureText = true;
+  bool _isFullName = false;
   bool _isEmailFilled = false;
   bool _isPasswordFilled = false;
 
+  final TextEditingController _fullnameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
+
+    _fullnameController.addListener(() {
+      setState(() {
+        _isFullName = _fullnameController.text.isNotEmpty;
+      });
+    });
 
     _emailController.addListener(() {
       setState(() {
@@ -83,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 child: IconButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    context.pop();
                   },
                   icon: const Icon(
                     Icons.arrow_back_ios_new_rounded,
@@ -98,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: GestureDetector(
         onTap: () {
-          FocusScope.of(context).unfocus(); // Unfocus the text field when tapping outside
+          FocusScope.of(context).unfocus();
         },
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -106,10 +120,39 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Login Your Account",
+                "Create Your Account",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
               ),
-              const SizedBox(height: 50),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                  border: _isFullName ? Border.all(color: Colors.black, width: 2) : null, // Black border if filled
+                ),
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.person_outline_rounded,
+                      color: _isFullName ? Colors.black : Colors.grey[400], // Change icon color if filled
+                    ),
+                    const SizedBox(width: 20),
+                    Expanded(
+                      child: TextField(
+                        controller: _fullnameController,
+                        cursorColor: Colors.black,
+                        style:const TextStyle(color: Colors.black),
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Full Name",
+                          hintStyle: TextStyle(color: Colors.grey[400]),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -181,16 +224,13 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
-              const Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "Forget Password?",
-                  style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
-                ),
-              ),
               const SizedBox(height: 20),
-              MainButon(buttonText: "Login"),
+              MainButon(
+                buttonText: "Register",
+                onPressed: (){
+                  context.push(Routes.phoneVerification);
+                },
+              ),
               const SizedBox(height: 20),
               Center(
                 child: RichText(
@@ -198,23 +238,21 @@ class _LoginPageState extends State<LoginPage> {
                   text: TextSpan(
                     children: [
                       const TextSpan(
-                        text: "Create new account? ",
+                        text: "Already have an account? ",
                         style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w500),
                       ),
                       TextSpan(
-                        text: "Sign up",
-                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                        text: "Sign in",
+                        style:const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                         recognizer: TapGestureRecognizer()..onTap = () {
-                          // Handle the tap here
-                          print("Sign up tapped");
+                          context.push(Routes.login);
                         },
                       ),
                     ],
                   ),
                 ),
               ),
-
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               Divider(color: Colors.grey[300],),
               const SizedBox(height: 30),
               LoginMethod(),

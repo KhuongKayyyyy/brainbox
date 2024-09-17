@@ -1,5 +1,5 @@
 import 'package:brainbox/utils/fake_data.dart';
-import 'package:brainbox/view/welcome_page.dart';
+import 'package:brainbox/view/authentication/welcome_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,6 @@
 import 'package:brainbox/utils/custom_icon.dart';
-import 'package:brainbox/view/login_page.dart';
+import 'package:brainbox/view/authentication/login_page.dart';
+import 'package:brainbox/view/authentication/sign_in_page.dart';
 import 'package:brainbox/widget/item/login_method.dart';
 import 'package:flutter/material.dart';
 class WelcomePage extends StatelessWidget{
@@ -70,7 +71,9 @@ class WelcomePage extends StatelessWidget{
                 ),
                 const SizedBox(height: 30,),
                 InkWell(
-                  onTap: (){},
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()));
+                  },
                   child: Container(
                     padding:const EdgeInsets.all(15),
                     decoration: BoxDecoration(
