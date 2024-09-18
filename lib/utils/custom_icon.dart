@@ -7,5 +7,6 @@ class CustomIcon{
   static String chat = "lib/icons/chat.png";
   static String talk = "lib/icons/rumor.png";
   static String image = "lib/icons/image.png";
+  static String filter = "lib/icons/filter.png";
 
 }
