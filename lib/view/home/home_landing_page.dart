@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../utils/custom_icon.dart';
 
 class HomeLandingPage extends StatelessWidget {
+  const HomeLandingPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +42,7 @@ class HomeLandingPage extends StatelessWidget {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Color.fromRGBO(198, 244, 50, 1),
+                        color: const Color.fromRGBO(198, 244, 50, 1),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(10),
@@ -53,8 +55,7 @@ class HomeLandingPage extends StatelessWidget {
                                   height: 40,
                                   decoration: BoxDecoration(
                                       color: Colors.black.withOpacity(0.2),
-                                      shape: BoxShape.circle
-                                  ),
+                                      shape: BoxShape.circle),
                                   padding: const EdgeInsets.all(8),
                                   child: Image.asset(CustomIcon.talk),
                                 ),
@@ -65,8 +66,14 @@ class HomeLandingPage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 50,),
-                            const Text("Talk with Bot",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500),),
+                            const SizedBox(
+                              height: 50,
+                            ),
+                            const Text(
+                              "Talk with Bot",
+                              style: TextStyle(
+                                  fontSize: 25, fontWeight: FontWeight.w500),
+                            ),
                           ],
                         ),
                       ),
@@ -80,7 +87,7 @@ class HomeLandingPage extends StatelessWidget {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
-                            color: Color.fromRGBO(192, 159, 248, 1),
+                            color: const Color.fromRGBO(192, 159, 248, 1),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(10),
@@ -93,8 +100,7 @@ class HomeLandingPage extends StatelessWidget {
                                       height: 40,
                                       decoration: BoxDecoration(
                                           color: Colors.black.withOpacity(0.2),
-                                          shape: BoxShape.circle
-                                      ),
+                                          shape: BoxShape.circle),
                                       padding: const EdgeInsets.all(8),
                                       child: Image.asset(CustomIcon.chat),
                                     ),
@@ -105,8 +111,13 @@ class HomeLandingPage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                const SizedBox(height: 10,),
-                                const Text("Chat with Bot",style: TextStyle(fontWeight: FontWeight.w500),),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                const Text(
+                                  "Chat with Bot",
+                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                ),
                               ],
                             ),
                           ),
@@ -116,7 +127,7 @@ class HomeLandingPage extends StatelessWidget {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
-                            color: Color.fromRGBO(254, 196, 221, 1),
+                            color: const Color.fromRGBO(254, 196, 221, 1),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(10),
@@ -129,8 +140,7 @@ class HomeLandingPage extends StatelessWidget {
                                       height: 40,
                                       decoration: BoxDecoration(
                                           color: Colors.black.withOpacity(0.2),
-                                          shape: BoxShape.circle
-                                      ),
+                                          shape: BoxShape.circle),
                                       padding: const EdgeInsets.all(8),
                                       child: Image.asset(CustomIcon.image),
                                     ),
@@ -141,8 +151,13 @@ class HomeLandingPage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                const SizedBox(height: 10,),
-                                const Text("Search by Image",style: TextStyle(fontWeight: FontWeight.w500),),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                const Text(
+                                  "Search by Image",
+                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                ),
                               ],
                             ),
                           ),

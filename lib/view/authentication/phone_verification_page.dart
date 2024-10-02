@@ -1,17 +1,14 @@
-import 'package:brainbox/main_wrapper.dart';
 import 'package:brainbox/utils/app_theme.dart';
 import 'package:brainbox/utils/routes.dart';
-import 'package:brainbox/view/authentication/phone_otp_verification_page.dart';
-import 'package:brainbox/view/authentication/sign_in_page.dart';
 import 'package:brainbox/widget/button/main_button.dart';
 import 'package:brainbox/widget/button/secondary_button.dart';
-import 'package:brainbox/widget/item/login_method.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 class PhoneVerificationPage extends StatefulWidget {
+  const PhoneVerificationPage({super.key});
+
   @override
   _PhoneVerificationPageState createState() => _PhoneVerificationPageState();
 }
@@ -144,11 +141,12 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
               ),
               const SizedBox(height: 50),
               MainButon(
-                  buttonText: "Verification",
-                onPressed: (){
-                    if(_phoneNumberController.text != "") {
-                      context.push('${Routes.phoneOTPVerification}/${_phoneNumberController.text}');
-                    }
+                buttonText: "Verification",
+                onPressed: () {
+                  if (_phoneNumberController.text != "") {
+                    context.push(
+                        '${Routes.phoneOTPVerification}/${_phoneNumberController.text}');
+                  }
                 },
               ),
               const SizedBox(height: 20),

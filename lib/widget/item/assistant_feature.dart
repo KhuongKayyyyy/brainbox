@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class AssistantFeature extends StatelessWidget {
   AIFeature aiFeature;
 
-  AssistantFeature({required this.aiFeature});
+  AssistantFeature({super.key, required this.aiFeature});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class AssistantFeature extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 40,
             child: Image.asset(aiFeature.featureIcon),
           ),
@@ -26,7 +26,7 @@ class AssistantFeature extends StatelessWidget {
           ),
           Text(
             aiFeature.featureName,
-            style: const TextStyle(fontWeight: FontWeight.w500,fontSize: 18),
+            style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
           ),
           const SizedBox(
             height: 10,

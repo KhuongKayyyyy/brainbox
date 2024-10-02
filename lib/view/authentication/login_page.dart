@@ -1,6 +1,4 @@
-import 'package:brainbox/main_wrapper.dart';
 import 'package:brainbox/utils/app_theme.dart';
-import 'package:brainbox/view/authentication/sign_in_page.dart';
 import 'package:brainbox/widget/button/main_button.dart';
 import 'package:brainbox/widget/item/login_method.dart';
 import 'package:flutter/gestures.dart';
@@ -10,6 +8,8 @@ import 'package:go_router/go_router.dart';
 import '../../utils/routes.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -104,7 +104,8 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: GestureDetector(
         onTap: () {
-          FocusScope.of(context).unfocus(); // Unfocus the text field when tapping outside
+          FocusScope.of(context)
+              .unfocus(); // Unfocus the text field when tapping outside
         },
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -120,21 +121,25 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
-                  border: _isEmailFilled ? Border.all(color: Colors.black, width: 2) : null, // Black border if filled
+                  border: _isEmailFilled
+                      ? Border.all(color: Colors.black, width: 2)
+                      : null, // Black border if filled
                 ),
                 padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
                     Icon(
                       Icons.email_outlined,
-                      color: _isEmailFilled ? Colors.black : Colors.grey[400], // Change icon color if filled
+                      color: _isEmailFilled
+                          ? Colors.black
+                          : Colors.grey[400], // Change icon color if filled
                     ),
                     const SizedBox(width: 20),
                     Expanded(
                       child: TextField(
                         controller: _emailController,
                         cursorColor: Colors.black,
-                        style: TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "Enter your email",
@@ -150,14 +155,18 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
-                  border: _isPasswordFilled ? Border.all(color: Colors.black, width: 2) : null,
+                  border: _isPasswordFilled
+                      ? Border.all(color: Colors.black, width: 2)
+                      : null,
                 ),
                 padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
                     Icon(
                       Icons.lock_outline_rounded,
-                      color: _isPasswordFilled ? Colors.black : Colors.grey[400], // Change icon color if filled
+                      color: _isPasswordFilled
+                          ? Colors.black
+                          : Colors.grey[400], // Change icon color if filled
                     ),
                     const SizedBox(width: 20),
                     Expanded(
@@ -192,13 +201,17 @@ class _LoginPageState extends State<LoginPage> {
                 alignment: Alignment.centerRight,
                 child: Text(
                   "Forget Password?",
-                  style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                      color: Colors.grey, fontWeight: FontWeight.w500),
                 ),
               ),
               const SizedBox(height: 20),
-              MainButon(buttonText: "Login",onPressed: (){
-                context.go(Routes.homeLandingPage);
-              },),
+              MainButon(
+                buttonText: "Login",
+                onPressed: () {
+                  context.go(Routes.homeLandingPage);
+                },
+              ),
               const SizedBox(height: 20),
               Center(
                 child: RichText(
@@ -207,24 +220,28 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       const TextSpan(
                         text: "Create new account? ",
-                        style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            color: Colors.grey, fontWeight: FontWeight.w500),
                       ),
                       TextSpan(
                         text: "Sign up",
-                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                        recognizer: TapGestureRecognizer()..onTap = () {
-                          context.push(Routes.signUp);
-                        },
+                        style: const TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            context.push(Routes.signUp);
+                          },
                       ),
                     ],
                   ),
                 ),
               ),
-
               const SizedBox(height: 30),
-              Divider(color: Colors.grey[300],),
+              Divider(
+                color: Colors.grey[300],
+              ),
               const SizedBox(height: 30),
-              LoginMethod(),
+              const LoginMethod(),
             ],
           ),
         ),

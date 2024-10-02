@@ -1,21 +1,19 @@
-import 'package:brainbox/utils/custom_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 
 class MainWrapper extends StatefulWidget {
-  const MainWrapper({super.key,required this.navigationShell});
+  const MainWrapper({super.key, required this.navigationShell});
 
   final StatefulNavigationShell navigationShell;
   @override
   _MainWrapperState createState() => _MainWrapperState();
 }
 
-
 class _MainWrapperState extends State<MainWrapper> {
   int _myCurrentIndex = 0;
 
-  void _goToBranch(int index){
+  void _goToBranch(int index) {
     widget.navigationShell.goBranch(
       index,
       initialLocation: index == widget.navigationShell.currentIndex,
@@ -28,13 +26,7 @@ class _MainWrapperState extends State<MainWrapper> {
       body: widget.navigationShell,
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
-          border: Border(
-            top: BorderSide(
-              color: Colors.black,
-              width: 1
-            )
-          )
-        ),
+            border: Border(top: BorderSide(color: Colors.black, width: 1))),
         height: 90,
         child: WaterDropNavBar(
           backgroundColor: Colors.white,

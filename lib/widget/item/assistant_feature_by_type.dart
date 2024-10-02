@@ -7,7 +7,7 @@ class AssistantFeatureByType extends StatelessWidget {
   List<AIFeature> featureList;
 
   AssistantFeatureByType(
-      {required this.featureList, required this.featureListName});
+      {super.key, required this.featureList, required this.featureListName});
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +19,22 @@ class AssistantFeatureByType extends StatelessWidget {
             children: [
               Text(
                 featureListName,
-                style:const TextStyle(fontWeight: FontWeight.w500, fontSize: 23),
+                style:
+                    const TextStyle(fontWeight: FontWeight.w500, fontSize: 23),
               ),
               const Spacer(),
-              IconButton(onPressed: () {}, icon:const Icon(Icons.arrow_forward,color: Colors.grey,))
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.arrow_forward,
+                    color: Colors.grey,
+                  ))
             ],
           ),
         ),
-        const SizedBox(height: 20,),
+        const SizedBox(
+          height: 20,
+        ),
         SizedBox(
           height: 200,
           child: ListView.builder(

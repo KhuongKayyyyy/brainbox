@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class HistoryChat extends StatelessWidget{
+class HistoryChat extends StatelessWidget {
   String chatTitle;
-  HistoryChat({required this.chatTitle});
+  HistoryChat({super.key, required this.chatTitle});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,7 +12,10 @@ class HistoryChat extends StatelessWidget{
         color: Colors.grey[100],
       ),
       padding: const EdgeInsets.all(15),
-      child: Text(chatTitle,style: const TextStyle(color: Colors.grey),),
+      child: Text(
+        chatTitle,
+        style: const TextStyle(color: Colors.grey),
+      ),
     );
   }
 }

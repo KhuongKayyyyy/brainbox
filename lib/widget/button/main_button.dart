@@ -4,7 +4,7 @@ class MainButon extends StatelessWidget {
   String buttonText;
   VoidCallback? onPressed;
 
-  MainButon({required this.buttonText, this.onPressed});
+  MainButon({super.key, required this.buttonText, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +12,14 @@ class MainButon extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(10)
-        ),
+            color: Colors.black, borderRadius: BorderRadius.circular(10)),
         height: 60,
         child: Center(
-            child: Text(buttonText,style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),),
+          child: Text(
+            buttonText,
+            style: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+          ),
         ),
       ),
     );

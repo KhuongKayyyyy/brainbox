@@ -1,9 +1,5 @@
-import 'package:brainbox/main_wrapper.dart';
 import 'package:brainbox/utils/app_theme.dart';
 import 'package:brainbox/utils/routes.dart';
-import 'package:brainbox/view/authentication/phone_verification_page.dart';
-import 'package:brainbox/view/authentication/login_page.dart';
-import 'package:brainbox/view/splash/splash.dart';
 import 'package:brainbox/widget/button/main_button.dart';
 import 'package:brainbox/widget/item/login_method.dart';
 import 'package:flutter/gestures.dart';
@@ -11,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
+
   @override
   _SignUpState createState() => _SignUpState();
 }
@@ -128,21 +126,25 @@ class _SignUpState extends State<SignUpPage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
-                  border: _isFullName ? Border.all(color: Colors.black, width: 2) : null, // Black border if filled
+                  border: _isFullName
+                      ? Border.all(color: Colors.black, width: 2)
+                      : null, // Black border if filled
                 ),
                 padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
                     Icon(
                       Icons.person_outline_rounded,
-                      color: _isFullName ? Colors.black : Colors.grey[400], // Change icon color if filled
+                      color: _isFullName
+                          ? Colors.black
+                          : Colors.grey[400], // Change icon color if filled
                     ),
                     const SizedBox(width: 20),
                     Expanded(
                       child: TextField(
                         controller: _fullnameController,
                         cursorColor: Colors.black,
-                        style:const TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "Full Name",
@@ -158,21 +160,25 @@ class _SignUpState extends State<SignUpPage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
-                  border: _isEmailFilled ? Border.all(color: Colors.black, width: 2) : null, // Black border if filled
+                  border: _isEmailFilled
+                      ? Border.all(color: Colors.black, width: 2)
+                      : null, // Black border if filled
                 ),
                 padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
                     Icon(
                       Icons.email_outlined,
-                      color: _isEmailFilled ? Colors.black : Colors.grey[400], // Change icon color if filled
+                      color: _isEmailFilled
+                          ? Colors.black
+                          : Colors.grey[400], // Change icon color if filled
                     ),
                     const SizedBox(width: 20),
                     Expanded(
                       child: TextField(
                         controller: _emailController,
                         cursorColor: Colors.black,
-                        style: TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "Enter your email",
@@ -188,14 +194,18 @@ class _SignUpState extends State<SignUpPage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
-                  border: _isPasswordFilled ? Border.all(color: Colors.black, width: 2) : null,
+                  border: _isPasswordFilled
+                      ? Border.all(color: Colors.black, width: 2)
+                      : null,
                 ),
                 padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
                     Icon(
                       Icons.lock_outline_rounded,
-                      color: _isPasswordFilled ? Colors.black : Colors.grey[400], // Change icon color if filled
+                      color: _isPasswordFilled
+                          ? Colors.black
+                          : Colors.grey[400], // Change icon color if filled
                     ),
                     const SizedBox(width: 20),
                     Expanded(
@@ -228,7 +238,7 @@ class _SignUpState extends State<SignUpPage> {
               const SizedBox(height: 20),
               MainButon(
                 buttonText: "Register",
-                onPressed: (){
+                onPressed: () {
                   context.push(Routes.phoneVerification);
                 },
               ),
@@ -240,23 +250,28 @@ class _SignUpState extends State<SignUpPage> {
                     children: [
                       const TextSpan(
                         text: "Already have an account? ",
-                        style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            color: Colors.grey, fontWeight: FontWeight.w500),
                       ),
                       TextSpan(
                         text: "Sign in",
-                        style:const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                        recognizer: TapGestureRecognizer()..onTap = () {
-                          context.push(Routes.login);
-                        },
+                        style: const TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            context.push(Routes.login);
+                          },
                       ),
                     ],
                   ),
                 ),
               ),
               const SizedBox(height: 20),
-              Divider(color: Colors.grey[300],),
+              Divider(
+                color: Colors.grey[300],
+              ),
               const SizedBox(height: 30),
-              LoginMethod(),
+              const LoginMethod(),
             ],
           ),
         ),

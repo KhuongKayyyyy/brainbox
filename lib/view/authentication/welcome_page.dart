@@ -3,7 +3,10 @@ import 'package:brainbox/view/authentication/login_page.dart';
 import 'package:brainbox/view/authentication/sign_in_page.dart';
 import 'package:brainbox/widget/item/login_method.dart';
 import 'package:flutter/material.dart';
-class WelcomePage extends StatelessWidget{
+
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,46 +21,44 @@ class WelcomePage extends StatelessWidget{
               ),
             ),
           ),
-          const SizedBox(height: 40,),
+          const SizedBox(
+            height: 40,
+          ),
           const Center(
             child: Text(
               "Welcome to BrainBox",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 39
-              ),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 39),
               textAlign: TextAlign.center,
             ),
           ),
 
-          const SizedBox(height: 50,),
+          const SizedBox(
+            height: 50,
+          ),
           Padding(
-            padding:const EdgeInsets.symmetric(
-              horizontal: 20
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
                 InkWell(
-                  onTap: (){
+                  onTap: () {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginPage())
-                    );
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
                   },
                   child: Container(
-                    padding:const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Colors.black,
-                      boxShadow:const [
-                        BoxShadow(
-                          color: Color.fromRGBO(210, 240, 232, 1),
-                          spreadRadius: 5,
-                          blurRadius: 10,
-                          offset: Offset(5, 10),
-                        ),
-                      ]
-                    ),
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.black,
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color.fromRGBO(210, 240, 232, 1),
+                            spreadRadius: 5,
+                            blurRadius: 10,
+                            offset: Offset(5, 10),
+                          ),
+                        ]),
                     child: const Center(
                       child: Text(
                         "Log in",
@@ -69,16 +70,21 @@ class WelcomePage extends StatelessWidget{
                     ),
                   ),
                 ),
-                const SizedBox(height: 30,),
+                const SizedBox(
+                  height: 30,
+                ),
                 InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()));
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpPage()));
                   },
                   child: Container(
-                    padding:const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(30),
+                      color: Colors.grey[200],
                     ),
                     child: const Center(
                       child: Text(
@@ -91,14 +97,17 @@ class WelcomePage extends StatelessWidget{
                     ),
                   ),
                 ),
-
               ],
             ),
           ),
-          const SizedBox(height: 50,),
+          const SizedBox(
+            height: 50,
+          ),
           //other login method
-          LoginMethod(),
-          const SizedBox(height: 50,)
+          const LoginMethod(),
+          const SizedBox(
+            height: 50,
+          )
         ],
       ),
     );

@@ -4,6 +4,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingPage extends StatefulWidget {
+  const OnBoardingPage({super.key});
+
   @override
   _OnBoardingPage createState() => _OnBoardingPage();
 }
@@ -44,8 +46,7 @@ class _OnBoardingPage extends State<OnBoardingPage> {
 
   void _back() {
     setState(() {
-      _currentIndex =
-          (_currentIndex - 1 + _images.length) % _images.length;
+      _currentIndex = (_currentIndex - 1 + _images.length) % _images.length;
     });
   }
 
@@ -54,14 +55,10 @@ class _OnBoardingPage extends State<OnBoardingPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(_images.length, (index) {
         return Container(
-          padding: EdgeInsets.all(2),
+          padding: const EdgeInsets.all(2),
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: Colors.black,
-              width: 1
-            )
-          ),
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.black, width: 1)),
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 4),
             width: _currentIndex == index ? 12 : 8,
@@ -83,10 +80,8 @@ class _OnBoardingPage extends State<OnBoardingPage> {
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => WelcomePage())
-              );
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const WelcomePage()));
             },
             child: Text(
               "Skip",
@@ -121,9 +116,10 @@ class _OnBoardingPage extends State<OnBoardingPage> {
                   ),
                   BoxShadow(
                     color: Colors.black.withOpacity(0.15), // Shadow color
-                    spreadRadius: 10,  // How much the shadow spreads
-                    blurRadius: 20,   // Blur radius of the shadow
-                    offset: const Offset(10, 20), // Changes the shadow position (x, y)
+                    spreadRadius: 10, // How much the shadow spreads
+                    blurRadius: 20, // Blur radius of the shadow
+                    offset: const Offset(
+                        10, 20), // Changes the shadow position (x, y)
                   ),
                 ],
               ),
@@ -132,8 +128,10 @@ class _OnBoardingPage extends State<OnBoardingPage> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(30),
                   child: AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 500), // Animation duration
-                    transitionBuilder: (Widget child, Animation<double> animation) {
+                    duration:
+                        const Duration(milliseconds: 500), // Animation duration
+                    transitionBuilder:
+                        (Widget child, Animation<double> animation) {
                       return FadeTransition(
                         opacity: animation, // Fade effect
                         child: child,
@@ -143,9 +141,12 @@ class _OnBoardingPage extends State<OnBoardingPage> {
                       width: 300, // Ensure the image fits the container
                       height: 400,
                       child: CachedNetworkImage(
-                        key: ValueKey<String>(_images[_currentIndex]), // Unique key for each image
-                        imageUrl: _images[_currentIndex], // Display current image
-                        fit: BoxFit.cover, // Ensures the image fits the container
+                        key: ValueKey<String>(_images[
+                            _currentIndex]), // Unique key for each image
+                        imageUrl:
+                            _images[_currentIndex], // Display current image
+                        fit: BoxFit
+                            .cover, // Ensures the image fits the container
                       ),
                     ),
                   ),
@@ -153,11 +154,13 @@ class _OnBoardingPage extends State<OnBoardingPage> {
               ),
             ),
           ),
-          const SizedBox(height: 40,),
+          const SizedBox(
+            height: 40,
+          ),
           _buildIndicator(),
           const Spacer(),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: AnimatedSwitcher(
               duration: const Duration(milliseconds: 500),
               child: Column(
@@ -165,18 +168,22 @@ class _OnBoardingPage extends State<OnBoardingPage> {
                 children: [
                   Text(
                     _texts[_currentIndex]['title']!,
-                    style:const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 30),
                     textAlign: TextAlign.center,
                   ),
-                  Text(_texts[_currentIndex]['subtitle']!,style: const TextStyle(color: Colors.grey),),
-                  Text(_texts[_currentIndex]['description']!,style: const TextStyle(color: Colors.grey)),
+                  Text(
+                    _texts[_currentIndex]['subtitle']!,
+                    style: const TextStyle(color: Colors.grey),
+                  ),
+                  Text(_texts[_currentIndex]['description']!,
+                      style: const TextStyle(color: Colors.grey)),
                 ],
               ),
             ),
           ),
           const SizedBox(height: 20),
           const Spacer(),
-
           Center(
             child: Container(
               width: 200,
@@ -196,8 +203,7 @@ class _OnBoardingPage extends State<OnBoardingPage> {
                       blurRadius: 10,
                       offset: const Offset(10, 10),
                     ),
-                  ]
-              ),
+                  ]),
               child: Row(
                 children: [
                   Expanded(

@@ -1,6 +1,5 @@
 import 'package:brainbox/utils/app_navigation.dart';
 import 'package:brainbox/utils/app_theme.dart';
-import 'package:brainbox/view/splash/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {

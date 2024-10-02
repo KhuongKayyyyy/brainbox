@@ -1,12 +1,12 @@
-import 'dart:async';  // Import for Timer
-import 'package:brainbox/main_wrapper.dart';
+import 'dart:async'; // Import for Timer
 import 'package:brainbox/utils/routes.dart';
-import 'package:brainbox/view/splash/on_boarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:brainbox/utils/custom_icon.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void _startRotation() {
     _rotationTimer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
       setState(() {
-        turns += 0.1;  // Increase rotation incrementally
+        turns += 0.1; // Increase rotation incrementally
       });
     });
   }
@@ -52,13 +52,16 @@ class _SplashScreenState extends State<SplashScreen> {
         color: Colors.white,
         child: Column(
           children: [
-            const SizedBox(height: 100,),
+            const SizedBox(
+              height: 100,
+            ),
             const Spacer(),
             SizedBox(
               height: 80,
               child: AnimatedRotation(
                 turns: turns,
-                duration: const Duration(milliseconds: 10000),  // Smooth rotation
+                duration:
+                    const Duration(milliseconds: 10000), // Smooth rotation
                 child: Image.asset(
                   CustomIcon.sakuraIcon,
                 ),
@@ -67,14 +70,15 @@ class _SplashScreenState extends State<SplashScreen> {
             const Spacer(),
             const Text(
               "BrainBox",
-              style: TextStyle(
-                  fontWeight: FontWeight.w600, fontSize: 30),
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 30),
             ),
             const Text(
               "Version 1.0",
               style: TextStyle(color: Colors.grey, fontSize: 15),
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
           ],
         ),
       ),

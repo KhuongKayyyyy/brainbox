@@ -4,11 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // For input formatting
 import 'package:go_router/go_router.dart';
 
-import '../../utils/app_theme.dart';
-
 class PhoneOTPVerificationPage extends StatelessWidget {
   final String phoneNumber;
-  PhoneOTPVerificationPage({required this.phoneNumber});
+  const PhoneOTPVerificationPage({super.key, required this.phoneNumber});
 
   @override
   Widget build(BuildContext context) {
